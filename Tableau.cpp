@@ -23,39 +23,61 @@ Tableau::~Tableau() {
     delete[] this->entree;
 }
 
+int Tableau:: getTailleMax(){
+    return this->tailleMax;
+}
+int Tableau::getNbElements(){
+    return this->nbElements;
+}
+
+Entree* Tableau:: getEntree(){
+    return this->entree;
+}
+
 void Tableau::afficher() {
     for (int i = 0; i < this->tailleMax; i++) {
         cout<<i<<": ";
-        this->entree[i].afficher()<<endl;
+        this->entree[i].afficher();
+        cout<<endl;
     }
 }
 void Tableau::ajouter(string nom, string numeroTel) {
-    if (this->nbElements > this->tailleMax) {
-        this->nbElements+=1;
+    if (this->nbElements < this->tailleMax) {
         this->entree[this->nbElements] = Entree(nom, numeroTel);
+        this->nbElements+=1;
     } else {
-        cout<<"Erreur ajouter tableau plein";
+        cout<<"Erreur ajouter tableau plein\n";
     }
 }
 void Tableau::supprimer(string nom, string numeroTel) {
-    bool boolTrouve=false;
+    bool  boolTrouve=false;
     for (int i = 0; i < this->nbElements && !boolTrouve; i++) {
-        if (this->entree[i].getNom()==nom and this->entree[i].getNumeroTel()==numeroTel) {
+        if (this->entree[i].nom==nom and this->entree[i].numeroTel==numeroTel) {
             boolTrouve=true;
-            this->nbElements--;
+            if (i!=nbElements){
+                entree[i]=entree[nbElements-1];
+            }
             // Pour que l'entree supprimee ne soit plus afficher meme si afficher est apellee en suivant
-            ajouter("","");
+            entree[nbElements-1].nom="";
+            entree[nbElements-1].numeroTel="";
+            this->nbElements--;
         }
     }
 }
 void Tableau::supprimer(string nom) {
-    bool boolTrouve=false;
-    for (int i = 0; i < this->nbElements && !boolTrouve; i++) {
-        if (this->entree[i].getNom()==nom) {
-            boolTrouve=true;
+    
+    int index = 0;
+      while (index < this->nbElements) {
+        if (this->entree[index].nom == nom) {
+            /// Pour que l'entree supprimee ne soit plus afficher meme si afficher est apellee en suivant
+             if (index!=nbElements){
+                entree[index]=entree[nbElements-1];
+            }
+            this->entree[this->nbElements - 1].nom = "";
+            this->entree[this->nbElements - 1].numeroTel = "";
             this->nbElements--;
-            // Pour que l'entree supprimee ne soit plus afficher meme si afficher est apellee en suivant
-            ajouter("","");
+        } else {
+            index++;
         }
     }
 }

@@ -14,12 +14,12 @@ private:
     int nbElements;
 
 public:
-    Tableau(int tailleMax);
+    Tableau(int tailleMax=10);
     Tableau(Tableau& tableau);
     ~Tableau();
-    Entree* getEntree();
     int getTailleMax();
     int getNbElements();
+    Entree* getEntree();
     void afficher();
     void ajouter(std::string nom, std::string numeroTel);
     void supprimer(std::string nom, std::string numeroTel);

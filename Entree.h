@@ -8,15 +8,14 @@
 
 
 class Entree {
+    friend class Tableau;
+    friend class Agenda;
 private:
     std::string nom;
     std::string numeroTel;
 
 public:
-    Entree();
-    Entree(std::string nom, std::string numeroTel);
-    std::string getNom();
-    std::string getNumeroTel();
+    Entree(std::string nom="", std::string numeroTel="");
     void afficher();
 };
 
