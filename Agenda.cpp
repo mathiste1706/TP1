@@ -5,15 +5,16 @@
 
 using namespace std;
 
-Agenda:: Agenda(int tailleMax){
-    this->tableau=Tableau(tailleMax);
+Agenda::Agenda(int tailleMax) : tableau(tailleMax){     //sinon on a une shallow copie qui est supprimee en suivant
     //*tableau=Tableau(tailleMax);
     //this->tableau=new Tableau(tailleMax);
 }
 
 Agenda:: Agenda(Agenda &agenda){
-    this->tableau=this->tableau;
+
+    this->tableau=Tableau(agenda.tableau);
 }
+
 
 void Agenda:: ajouter(std:: string nom, std:: string numeroTel){
     this->tableau.ajouter(nom, numeroTel);

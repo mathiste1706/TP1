@@ -10,17 +10,24 @@ Tableau::Tableau(int tailleMax) {
     this->tailleMax = tailleMax;
     this->entree = new Entree[tailleMax];
     this->nbElements = 0;
+
 }
 Tableau::Tableau(Tableau &tableau) {
     this->tailleMax = tableau.tailleMax;
     this->nbElements = tableau.nbElements;
     this->entree = new Entree[tableau.tailleMax];
+
     for (int i = 0; i < this->tailleMax; i++) {
         this->entree[i] = tableau.entree[i];
     }
 }
 Tableau::~Tableau() {
-    delete[] this->entree;
+    std::cout << "Tableau destructor called" << std::endl;
+    if (entree != nullptr) {
+        delete[] entree;  // Safely delete the array
+        entree = nullptr; // Avoid dangling pointer
+        cout << "Tableau destructor called successfully" << endl;
+    }
 }
 
 int Tableau:: getTailleMax(){

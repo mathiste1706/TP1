@@ -67,6 +67,12 @@ build CMakeFiles/TP1.dir/Tableau.cpp.obj: CXX_COMPILER__TP1_unscanned_Debug C$:/
   OBJECT_DIR = CMakeFiles\TP1.dir
   OBJECT_FILE_DIR = CMakeFiles\TP1.dir
 
+build CMakeFiles/TP1.dir/Agenda.cpp.obj: CXX_COMPILER__TP1_unscanned_Debug C$:/Users/Mathilde/CLionProjects/TP1/Agenda.cpp || cmake_object_order_depends_target_TP1
+  DEP_FILE = CMakeFiles\TP1.dir\Agenda.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\TP1.dir
+  OBJECT_FILE_DIR = CMakeFiles\TP1.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TP1
@@ -75,7 +81,7 @@ build CMakeFiles/TP1.dir/Tableau.cpp.obj: CXX_COMPILER__TP1_unscanned_Debug C$:/
 #############################################
 # Link the executable TP1.exe
 
-build TP1.exe: CXX_EXECUTABLE_LINKER__TP1_Debug CMakeFiles/TP1.dir/main.cpp.obj CMakeFiles/TP1.dir/Entree.cpp.obj CMakeFiles/TP1.dir/Tableau.cpp.obj
+build TP1.exe: CXX_EXECUTABLE_LINKER__TP1_Debug CMakeFiles/TP1.dir/main.cpp.obj CMakeFiles/TP1.dir/Entree.cpp.obj CMakeFiles/TP1.dir/Tableau.cpp.obj CMakeFiles/TP1.dir/Agenda.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TP1.dir

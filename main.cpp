@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Entree.h"
 #include "Tableau.h"
+#include "Agenda.hpp"
 using namespace std; 
 
 int main() {
@@ -25,18 +26,18 @@ int main() {
 
     tab1.ajouter("nom3","3333");
 
-    cout<< "check tab1 après ajout entree\n";
+    cout<< "check tab1 apres ajout entree\n";
     tab1.afficher();
     
-    cout<<"tabCopie près ajout entree ds tab1\n";
+    cout<<"tabCopie apres ajout entree ds tab1\n";
     tabCopie.afficher();
 
     tabCopie.supprimer("nom2", "2222");
 
-    cout<< "tabCopie après suppression de entre2\n";
+    cout<< "tabCopie apres suppression de entre2\n";
     tabCopie.afficher();
 
-    cout<< "tab1 après suppression de entre2 ds tabCopie\n";
+    cout<< "tab1 apres suppression de entre2 ds tabCopie\n";
     tab1.afficher();
 
     tabCopie.ajouter("nom2", "2222");
@@ -44,22 +45,43 @@ int main() {
     tabCopie.ajouter("nom3","4444");
     tabCopie.ajouter("nomM","MMMM");
 
-    cout<<"tab Copie après ajout 2 et 3 et 4\n";
+    cout<<"tab Copie apres ajout 2 et 3 et 4\n";
     tabCopie.afficher();
 
-    cout<<"tab Copie après suppression 2 et 3 et 4\n";
+    cout<<"tab Copie apres suppression 2 et 3 et 4\n";
     tabCopie.supprimer("nom2", "2222");
     tabCopie.supprimer("nom_copie", "copppp");
     tabCopie.supprimer("nom3");
     tabCopie.afficher();
+    tabCopie.~Tableau();
 
+    Agenda agenda(2);
+    agenda.ajouter("nom3", "3333");
+    agenda.ajouter("nom3","4444");
+    agenda.ajouter("nom2", "2222");
+    cout<<"agenda apres ajout 2 et 3 et 4\n";
+    agenda.afficher();
+
+
+    Agenda agendaCopie(agenda);
+    //cout<<"agenda copie\n";
+    //agendaCopie.afficher();
+    //Agenda agendaConcat=agendaConcat.concat(agenda, agendaCopie);
+    cout<<"agenda concat return un 3eme agenda\n";
+    //agendaConcat.afficher();
+
+    cout<<"agenda concat ds un agenda existant erreur attendu\n";
+    //agendaConcat.concat(agenda);
+
+   // agendaPrConcact
+
+    /*
     cout<< "Seg Fault Attendue\n";
     tabCopie.~Tableau();
     tabCopie.afficher();
+    */
 
     // question 5 on doit remplacer Tableau tableau par Tableau *tableau et faire soit des new pour les allocations de tableau ou tableau=Tableau(tailleMax);
-
-
 
     return 0;
 }

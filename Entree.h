@@ -15,7 +15,7 @@ private:
     std::string numeroTel;
 
 public:
-    Entree(std::string nom="", std::string numeroTel="");
+    explicit Entree(std::string nom="", std::string numeroTel="");
     void afficher();
 };
 

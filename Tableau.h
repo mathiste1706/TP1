@@ -14,7 +14,7 @@ private:
     int nbElements;
 
 public:
-    Tableau(int tailleMax=10);
+    explicit Tableau(int tailleMax=10);
     Tableau(Tableau& tableau);
     ~Tableau();
     int getTailleMax();

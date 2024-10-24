@@ -8,7 +8,7 @@ private:
     //Tableau *tableau;
 
 public:
-    Agenda(int tailleMax=10);
+    explicit Agenda(int tailleMax=10);
     Agenda(Agenda &agenda);
     Agenda concat (Agenda &agenda1, Agenda &agenda2);
     void concat(Agenda &agenda);
