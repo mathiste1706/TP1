@@ -47,8 +47,8 @@ Agenda Agenda:: concat (Agenda &agenda1, Agenda &agenda2){
 
 void Agenda:: concat(Agenda &agenda){
     Entree entree;
-    if (this->tableau.getNbElements()+agenda.tableau.getNbElements()<=this->tableau.getTailleMax()){
-        for (int i=0; i<agenda.tableau.getTailleMax();i++){
+    if (agenda.tableau.getNbElements()<=this->tableau.getTailleMax()-this->tableau.getNbElements()){
+        for (int i=0; i<agenda.tableau.getNbElements();i++){
             entree=Entree(agenda.tableau.getEntree()[i]);
             this->tableau.ajouter(entree.nom, entree.numeroTel);
         }
@@ -57,5 +57,6 @@ void Agenda:: concat(Agenda &agenda){
         cout<<"Erreur: Impossible de concatener!\nAgenda courant trop petit\n";
     }
 }
+
 
 #endif  //AGENDA_HPP
