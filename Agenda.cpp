@@ -47,7 +47,7 @@ Agenda Agenda:: concat (Agenda &agenda1, Agenda &agenda2){
 
 void Agenda:: concat(Agenda &agenda){
     Entree entree;
-    if (this->tableau.getNbElements()+agenda.tableau.getNbElements()<=this->tableau.getNbElements()){
+    if (this->tableau.getNbElements()+agenda.tableau.getNbElements()<=this->tableau.getTailleMax()){
         for (int i=0; i<agenda.tableau.getTailleMax();i++){
             entree=Entree(agenda.tableau.getEntree()[i]);
             this->tableau.ajouter(entree.nom, entree.numeroTel);
