@@ -10,9 +10,7 @@ Agenda::Agenda(int tailleMax) : tableau(tailleMax){     //sinon on a une shallow
     //this->tableau=new Tableau(tailleMax);
 }
 
-Agenda:: Agenda(Agenda &agenda){
-
-    this->tableau=Tableau(agenda.tableau);
+Agenda:: Agenda(Agenda &agenda):tableau(agenda.tableau){
 }
 
 
@@ -35,12 +33,12 @@ Agenda Agenda:: concat (Agenda &agenda1, Agenda &agenda2){
     
     Agenda agenda3(tailleMax);
     Entree entree;
-    for (int i=0; i<agenda1.tableau.getTailleMax();i++){
+    for (int i=0; i<agenda1.tableau.getNbElements();i++){
         entree=Entree(agenda1.tableau.getEntree()[i]);
         agenda3.ajouter(entree.nom, entree.numeroTel);
     }
 
-    for (int i=0; i<agenda2.tableau.getTailleMax();i++){
+    for (int i=0; i<agenda2.tableau.getNbElements();i++){
         entree=Entree(agenda1.tableau.getEntree()[i]);
         agenda3.tableau.ajouter(entree.nom, entree.numeroTel);
     }
@@ -49,14 +47,14 @@ Agenda Agenda:: concat (Agenda &agenda1, Agenda &agenda2){
 
 void Agenda:: concat(Agenda &agenda){
     Entree entree;
-    if (this->tableau.getTailleMax()+agenda.tableau.getTailleMax()<this->tableau.getTailleMax()){
+    if (this->tableau.getNbElements()+agenda.tableau.getNbElements()<=this->tableau.getNbElements()){
         for (int i=0; i<agenda.tableau.getTailleMax();i++){
             entree=Entree(agenda.tableau.getEntree()[i]);
             this->tableau.ajouter(entree.nom, entree.numeroTel);
         }
     }
     else {
-        cout<<"Erreur: Impossible de concatener!\nAgenda courant trop petit";
+        cout<<"Erreur: Impossible de concatener!\nAgenda courant trop petit\n";
     }
 }
 

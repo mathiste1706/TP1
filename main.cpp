@@ -55,23 +55,37 @@ int main() {
     tabCopie.afficher();
     tabCopie.~Tableau();
 
-    Agenda agenda(2);
+    Agenda agenda(3);
     agenda.ajouter("nom3", "3333");
     agenda.ajouter("nom3","4444");
     agenda.ajouter("nom2", "2222");
-    cout<<"agenda apres ajout 2 et 3 et 4\n";
+    agenda.ajouter("nom5", "5555");
+    cout<<"agenda apres ajout 2, 3, 4 et 5\n";
     agenda.afficher();
 
 
     Agenda agendaCopie(agenda);
-    //cout<<"agenda copie\n";
-    //agendaCopie.afficher();
-    //Agenda agendaConcat=agendaConcat.concat(agenda, agendaCopie);
+    cout<<"agenda copie\n";
+    agendaCopie.afficher();
+    Agenda agendaConcat=agendaConcat.concat(agenda, agendaCopie);
     cout<<"agenda concat return un 3eme agenda\n";
-    //agendaConcat.afficher();
+    agendaConcat.afficher();
 
     cout<<"agenda concat ds un agenda existant erreur attendu\n";
-    //agendaConcat.concat(agenda);
+    agendaConcat.concat(agenda);
+
+    Agenda agenda4(4);
+    agenda4.ajouter("nom6", "6666");
+    agenda4.concat(agenda);
+    cout<<"agenda concat ds un agenda\n";
+    agenda4.afficher();
+
+    cout<<"suppression nom2\n";
+    agenda4.supprimer("nom2", "2222");
+    agenda4.afficher();
+    cout<<"suppression nom3\n";
+    agenda4.supprimer("nom3");
+    agenda4.afficher();
 
    // agendaPrConcact
 
