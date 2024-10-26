@@ -95,7 +95,10 @@ int main() {
     tabCopie.afficher();
     */
 
-    // question 5 on doit remplacer Tableau tableau par Tableau *tableau et faire soit des new pour les allocations de tableau ou tableau=Tableau(tailleMax);
+    // question 5 on doit remplacer Tableau tableau par Tableau *tableau et faire soit des new pour les allocations de
+    // tableau ou tableau=Tableau(tailleMax);
+    // Aussi Agenda::Agenda(int tailleMax) : tableau(tailleMax) devient un constructeur classique
+    // et on doit créer un destructeur comme pour tableau
 
     return 0;
 }

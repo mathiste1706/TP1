@@ -22,11 +22,11 @@ Tableau::Tableau(Tableau &tableau) {
     }
 }
 Tableau::~Tableau() {
-    std::cout << "Tableau destructor called" << std::endl;
+    //std::cout << "Tableau destructor called" << std::endl;
     if (entree != nullptr) {
-        delete[] entree;  // Safely delete the array
-        entree = nullptr; // Avoid dangling pointer
-        cout << "Tableau destructor called successfully" << endl;
+        delete[] entree;
+        entree = nullptr; // Evite un pointeur inacessible
+      //  cout << "Tableau destructor called successfully" << endl;
     }
 }
 
